@@ -45,9 +45,6 @@ if(TARGET Qt::Quick)
     if (TARGET Qt::3DInput)
         add_subdirectory(quick3d/imports/input)
     endif()
-    if (TARGET Qt::3DAnimation)
-        add_subdirectory(quick3d/imports/animation)
-    endif()
 endif()
 
 ## Plugins
