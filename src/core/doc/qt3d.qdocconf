@@ -42,7 +42,7 @@ tagfile                 = qt3d.tags
 
 depends                 += qtcore qtgui qtqml qtquick qtdoc
 
-headerdirs += . \
+{headerdirs,sourcedirs} += . \
               ../../render \
               ../../core \
               ../../logic \
@@ -51,8 +51,7 @@ headerdirs += . \
               ../../input \
               ../../extras \
               ../../animation \
-              ../../quick3d/quick3dscene2d \
-              ../../quick3d/imports/scene3d
+              ../../quick3d/quick3dscene2d
 
 # Exclude private header files from the documentation build
 excludefiles += "*_p.h"
@@ -62,21 +61,7 @@ headers       = ../../core/transforms/matrix4x4_p.h \
                 ../../core/transforms/vector3d_p.h \
                 ../../render/raycasting/qray3d_p.h \
                 ../../input/frontend/qabstractphysicaldeviceproxy_p.h \
-                ../../input/frontend/qinputdeviceintegration_p.h \
-                ../../quick3d/imports/scene3d/scene3ditem_p.h
-
-sourcedirs += . \
-              ../../render \
-              ../../core \
-              ../../logic \
-              ../../plugins \
-              ../../quick3d/quick3d \
-              ../../input \
-              ../../extras \
-              ../../animation \
-              ../../quick3d/quick3dscene2d \
-              ../../quick3d/imports/scene3d
-
+                ../../input/frontend/qinputdeviceintegration_p.h
 
 exampledirs += ../../../examples/qt3d \
                snippets
