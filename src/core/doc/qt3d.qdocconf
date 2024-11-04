@@ -84,3 +84,6 @@ navigation.qmltypespage = "Qt 3D QML Types"
 # Auto-generate navigation linking based on "Qt 3D module topics":
 navigation.toctitles = "Qt 3D module topics"
 navigation.toctitles.inclusive = false
+
+# Allow no documentation warnings when testing in CI
+warninglimit = 0
