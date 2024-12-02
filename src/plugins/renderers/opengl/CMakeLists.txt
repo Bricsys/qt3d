@@ -84,6 +84,8 @@ if(QT_FEATURE_private_tests)
         INCLUDE_DIRECTORIES
             debug
             ${PROJECT_SOURCE_DIR}/src/3rdparty/imgui
+        ATTRIBUTION_FILE_DIR_PATHS
+            ${PROJECT_SOURCE_DIR}/src/3rdparty/imgui
     )
 
 endif()
@@ -134,6 +136,8 @@ qt_internal_extend_target(OpenGLRendererPlugin CONDITION NOT INTEGRITY
         ${PROJECT_SOURCE_DIR}/src/3rdparty/imgui/imgui_widgets.cpp
     INCLUDE_DIRECTORIES
         debug
+        ${PROJECT_SOURCE_DIR}/src/3rdparty/imgui
+    ATTRIBUTION_FILE_DIR_PATHS
         ${PROJECT_SOURCE_DIR}/src/3rdparty/imgui
 )
 
