@@ -98,7 +98,7 @@ QPointLight::QPointLight(QPointLightPrivate &dd, QNode *parent)
 }
 
 /*!
-  \qmlproperty float Qt3D.Render::PointLight::constantAttenuation
+  \qmlproperty real Qt3D.Render::PointLight::constantAttenuation
     Specifies the constant attenuation of the point light.
 
     \note The exact meaning and use of this property is up to the
@@ -128,7 +128,7 @@ void QPointLight::setConstantAttenuation(float value)
 }
 
 /*!
-  \qmlproperty float Qt3D.Render::PointLight::linearAttenuation
+  \qmlproperty real Qt3D.Render::PointLight::linearAttenuation
     Specifies the linear attenuation of the point light.
 
     \note The exact meaning and use of this property is up to the
@@ -158,7 +158,7 @@ void QPointLight::setLinearAttenuation(float value)
 }
 
 /*!
-  \qmlproperty float Qt3D.Render::PointLight::quadraticAttenuation
+  \qmlproperty real Qt3D.Render::PointLight::quadraticAttenuation
     Specifies the quadratic attenuation of the point light.
 
     \note The exact meaning and use of this property is up to the
