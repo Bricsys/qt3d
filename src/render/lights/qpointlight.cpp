@@ -57,7 +57,7 @@ QPointLightPrivate::QPointLightPrivate()
 /*!
     \qmltype PointLight
     \nativetype Qt3DRender::QPointLight
-    \inherits AbstractLight
+    \inherits Light
     \inqmlmodule Qt3D.Render
     \since 5.5
     \brief Encapsulate a Point Light object in a Qt 3D scene.
