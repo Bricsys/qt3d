@@ -63,7 +63,7 @@ QSpotLightPrivate::QSpotLightPrivate()
 /*!
     \qmltype SpotLight
     \nativetype Qt3DRender::QSpotLight
-    \inherits AbstractLight
+    \inherits Light
     \inqmlmodule Qt3D.Render
     \since 5.5
     \brief Encapsulate a Spot Light object in a Qt 3D scene.
