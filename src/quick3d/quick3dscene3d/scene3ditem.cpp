@@ -23,6 +23,7 @@
 #include <Qt3DRender/QRenderAspect>
 #include <Qt3DRender/qcamera.h>
 #include <Qt3DRender/qrendersurfaceselector.h>
+#include <Qt3DRender/qrendersettings.h>
 
 #include <QtGui/qguiapplication.h>
 #include <QtGui/qoffscreensurface.h>
@@ -701,6 +702,18 @@ private:
 // main thread (afterAnimating)
 void Scene3DItem::synchronize()
 {
+    // Check if we should skip processing entirely for OnDemand rendering when scene is static
+    if (m_entity) {
+        auto renderSettings = m_entity->findChild<Qt3DRender::QRenderSettings *>();
+        if (renderSettings && renderSettings->renderPolicy() == Qt3DRender::QRenderSettings::OnDemand) {
+            // For OnDemand rendering, only process if we actually have changes to render
+            if (!m_dirty && m_framesToRender <= 0) {
+                m_wasFrameProcessed = false;
+                return;
+            }
+        }
+    }
+
     // Request updates for the next frame
     requestUpdate();
 
@@ -822,6 +835,7 @@ QSGNode *Scene3DItem::updatePaintNode(QSGNode *node, QQuickItem::UpdatePaintNode
                 [this] {
                     m_dirty = true;
                     m_framesToRender = ms_framesNeededToFlushPipeline;
+                    QMetaObject::invokeMethod(this, "requestUpdate", Qt::QueuedConnection);
                 },
                 Qt::DirectConnection);
 
@@ -863,8 +877,6 @@ QSGNode *Scene3DItem::updatePaintNode(QSGNode *node, QQuickItem::UpdatePaintNode
     if (m_wasFrameProcessed)
         renderer->beforeSynchronize();
 
-    // Force window->beforeRendering to be triggered
-    managerNode->markDirty(QSGNode::DirtyForceUpdate);
 
     m_wasSGUpdated = true;
 
